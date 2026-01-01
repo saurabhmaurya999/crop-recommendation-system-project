@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+    <title>ML API</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+</head>
+
+<body>
+<div class="login">
+    <h1>
+        Crop Recommendation System
+    </h1>
+    <form action = "{{url_for('predict')}}" method="post">
+        <input type = "text" name = "N" placeholder="Nitrogen" required = "required"/>
+        <input type = "text" name = "P" placeholder="Phosphorus" required = "required"/>
+        <input type = "text" name = "K" placeholder="Potassium(K)" required = "required"/>
+        <input type = "text" name = "temperature" placeholder="Temperature" required = "required"/>
+        <input type = "text" name = "humidity" placeholder="Humidity" required = "required"/>
+        <input type = "text" name = "ph" placeholder="Ph" required = "required"/>
+        <input type = "text" name = "rainfall" placeholder="Rainfall" required = "required"/>
+
+        <button type = "submit" class  = "btn btn-primary btn-block btn-large">Predict</button>
+    <h1 id="predi">
+    {% if Prediction_Text %}
+        {{ Prediction_Text }}
+    {% endif %}
+    </h1>
+    </form>
+    
+</div>
+</body>
+</html>
